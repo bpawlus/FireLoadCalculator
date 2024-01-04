@@ -33,5 +33,10 @@ namespace FireLoadCalculator.ViewModel
             Items.Add(Text);
             Text = string.Empty;
         }
+
+        [RelayCommand]
+        async Task Tap(string s) {
+            await Shell.Current.GoToAsync($"{nameof(DetailPage)}?Text={s}");
+        }
     }
 }
