@@ -26,8 +26,8 @@ namespace FireLoadCalculator.ViewModel
         [RelayCommand]
         void Add()
         {
-            if (string.IsNullOrWhiteSpace(Text)) { 
-            
+            if (string.IsNullOrWhiteSpace(Text)) {
+                return;
             }
 
             Items.Add(Text);
