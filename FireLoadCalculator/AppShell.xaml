@@ -5,16 +5,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:FireLoadCalculator"
     xmlns:views="clr-namespace:FireLoadCalculator.Views"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Locked">
 
-    <TabBar>
-        <ShellContent
-            Title="Rooms"
-            ContentTemplate="{DataTemplate views:AllRoomsPage}" />
-
-        <ShellContent
-            Title="Materials"
-            ContentTemplate="{DataTemplate views:AllMaterialsPage}" />
-    </TabBar>
+    <FlyoutItem Title="Materials" Route="materials">
+        <ShellContent ContentTemplate="{DataTemplate views:AllMaterialsPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Rooms" Route="rooms">
+        <ShellContent ContentTemplate="{DataTemplate views:AllRoomsPage}" />
+    </FlyoutItem>
 
 </Shell>

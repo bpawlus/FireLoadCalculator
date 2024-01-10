@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using FireLoadCalculator.Models;
+using FireLoadCalculator.Views;
+using Microsoft.Extensions.Logging;
 
 namespace FireLoadCalculator
 {
@@ -18,6 +20,8 @@ namespace FireLoadCalculator
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            builder.Services.AddSingleton<AllMaterialsPage>();
+            builder.Services.AddSingleton<AllMaterials>();
 
             return builder.Build();
         }
