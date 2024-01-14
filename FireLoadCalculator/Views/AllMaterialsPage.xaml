@@ -15,7 +15,10 @@
         <CollectionView Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" ItemsSource="{Binding Materials}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="viewmodel:Material">
-                    <Label Text="{Binding Name}" FontSize="24"/>
+                    <Grid RowDefinitions="36, 12">
+                        <Label Text="{Binding Name}" FontSize="24" Grid.Row="0"/>
+                        <Label Text="{Binding CombustionHeat, StringFormat='Combustion Heat {0}'}" FontSize="8" Grid.Row="1"/>
+                    </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
