@@ -13,6 +13,21 @@ namespace FireLoadCalculator.Models
                 new Material("M3", 20, 0),
                 new Material("M4", 20, 0),
                 new Material("M5", 20, 0),
+                new Material("M1", 20, 0),
+                new Material("M2", 20, 0),
+                new Material("M3", 20, 0),
+                new Material("M4", 20, 0),
+                new Material("M5", 20, 0),
+                new Material("M1", 20, 0),
+                new Material("M2", 20, 0),
+                new Material("M3", 20, 0),
+                new Material("M4", 20, 0),
+                new Material("M5", 20, 0),
+                new Material("M1", 20, 0),
+                new Material("M2", 20, 0),
+                new Material("M3", 20, 0),
+                new Material("M4", 20, 0),
+                new Material("M5", 20, 0),
             ];
         }
 

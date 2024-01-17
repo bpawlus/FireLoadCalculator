@@ -22,7 +22,7 @@ namespace FireLoadCalculator
 #endif
             builder.Services.AddSingleton<AllMaterialsPage>();
             builder.Services.AddSingleton<AllMaterials>();
-
+            builder.Services.AddSingleton<AllRooms>();
             return builder.Build();
         }
     }

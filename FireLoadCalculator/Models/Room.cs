@@ -1,7 +1,8 @@
 ﻿namespace FireLoadCalculator.Models
 {
-    internal class Room
+    public class Room
     {
+        public string Name { get; set; }
         public float Area { get; set; }
         public Material? StoredMaterial { get; set; }
         public float StoredMaterialWeight { get; set; }

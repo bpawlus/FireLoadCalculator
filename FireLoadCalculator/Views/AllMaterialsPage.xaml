@@ -6,7 +6,7 @@
              x:DataType="viewmodel:AllMaterials"
              >
 
-    <Grid RowDefinitions=".80*, .20*"
+    <Grid RowDefinitions="*, 50"
           ColumnDefinitions=".33*, .67*"
           Padding="8"
           RowSpacing="4"
@@ -16,16 +16,31 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="viewmodel:Material">
                     <Grid RowDefinitions="36, 12">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer 
+                               Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:AllMaterials}}, Path=TapCommand}"
+                               CommandParameter="{Binding .}"/>
+                        </Grid.GestureRecognizers>
                         <Label Text="{Binding Name}" FontSize="24" Grid.Row="0"/>
-                        <Label Text="{Binding CombustionHeat, StringFormat='Combustion Heat {0}'}" FontSize="8" Grid.Row="1"/>
+                        <Label Text="{Binding CombustionHeat, StringFormat='Combustion Heat {0}'}" FontSize="8" Grid.Row="1"/> 
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <BoxView Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Color="Cyan"/>
+        <ScrollView Grid.Column="1" Grid.Row="0" Grid.RowSpan="3">
+            <StackLayout>
+                <Label Text="Edit" FontSize="24"/>
+                <Label Text="Name:" FontSize="16"/>
+                <Entry Placeholder="Enter task" Text="..."/>
+                <Label Text="Combustion Heat:" FontSize="16"/>
+                <Entry Placeholder="Enter task" Text="..."/>
+                <Button Text="Save"/>
+            </StackLayout>
+        </ScrollView>
 
-        <BoxView Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Color="Yellow"/>
+
+        <Button Text="New" Grid.Column="0" Grid.Row="1"/>
 
     </Grid>
 </ContentPage>
