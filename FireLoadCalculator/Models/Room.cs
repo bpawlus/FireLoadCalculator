@@ -2,6 +2,11 @@
 {
     public class Room
     {
+        public Room(string _name, float _area) { 
+            Name = _name;
+            Area = _area;
+        }
+
         public string Name { get; set; }
         public float Area { get; set; }
         public Material? StoredMaterial { get; set; }
