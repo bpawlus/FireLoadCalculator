@@ -3,6 +3,7 @@ using FireLoadCalculator.Views;
 using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
 using FireLoadCalculator.ViewModels;
+using FireLoadCalculator.Data;
 
 namespace FireLoadCalculator
 {
@@ -31,6 +32,8 @@ namespace FireLoadCalculator
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
+            builder.Services.AddSingleton<MaterialDatabase>();
+
             builder.Services.AddSingleton<AllMaterialsPage>();
             builder.Services.AddSingleton<AllRoomsPage>();
             builder.Services.AddSingleton<AllMaterials>();

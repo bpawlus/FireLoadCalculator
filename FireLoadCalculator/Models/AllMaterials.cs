@@ -1,37 +1,31 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using FireLoadCalculator.Data;
 using System.Collections.ObjectModel;
 
 namespace FireLoadCalculator.Models
 {
     public partial class AllMaterials : ObservableObject
     {
-        public AllMaterials() {
-            Materials =
-            [
-                new Material("M1", 20, 0),
-                new Material("M2", 20, 0),
-                new Material("M3", 20, 0),
-                new Material("M4", 20, 0),
-                new Material("M5", 20, 0),
-                new Material("M1", 20, 0),
-                new Material("M2", 20, 0),
-                new Material("M3", 20, 0),
-                new Material("M4", 20, 0),
-                new Material("M5", 20, 0),
-                new Material("M1", 20, 0),
-                new Material("M2", 20, 0),
-                new Material("M3", 20, 0),
-                new Material("M4", 20, 0),
-                new Material("M5", 20, 0),
-                new Material("M1", 20, 0),
-                new Material("M2", 20, 0),
-                new Material("M3", 20, 0),
-                new Material("M4", 20, 0),
-                new Material("M5", 20, 0),
-            ];
-        }
-
         [ObservableProperty]
         ObservableCollection<Material> materials;
+
+        MaterialDatabase db;
+
+        public AllMaterials(MaterialDatabase _db)
+        {
+            Materials = new ObservableCollection<Material>();
+            db = _db;
+        }
+
+        public async Task UpdateMaterials()
+        {
+            var items = await db.GetItemsAsync();
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                Materials.Clear();
+                foreach (var item in items)
+                    Materials.Add(item);
+            });
+        }
     }
 }
