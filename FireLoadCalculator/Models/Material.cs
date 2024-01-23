@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
 
 namespace FireLoadCalculator.Models
 {
@@ -13,9 +14,12 @@ namespace FireLoadCalculator.Models
         }
 
         [PrimaryKey, AutoIncrement]
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public float CombustionHeat { get; set; }
         public float ReductionFactor { get; set; }
+
+        [OneToMany(CascadeOperations = CascadeOperation.CascadeDelete)]
+        public List<RoomMaterials> RoomMaterials { get; set; }
     }
 }

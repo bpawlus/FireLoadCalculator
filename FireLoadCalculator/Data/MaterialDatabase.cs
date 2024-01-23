@@ -10,49 +10,37 @@ namespace FireLoadCalculator.Data
 {
     public class MaterialDatabase
     {
-        SQLiteAsyncConnection Database;
-        public MaterialDatabase() {
-            Init();
-        }
+        private SQLiteAsyncConnection db;
 
-        async Task Init()
-        {
-            if (Database is not null)
-                return;
-
-            Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
-            var result = await Database.CreateTableAsync<Material>();
+        public MaterialDatabase(FireLoadCalculatorDatabase _db) {
+            db = _db.Database;
         }
 
         public async Task<List<Material>> GetItemsAsync()
         {
-            await Init();
-            return await Database.Table<Material>().ToListAsync();
+            return await db.Table<Material>().ToListAsync();
         }
 
         public async Task<Material> GetItemAsync(int id)
         {
-            await Init();
-            return await Database.Table<Material>().Where(i => i.ID == id).FirstOrDefaultAsync();
+            return await db.Table<Material>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
 
         public async Task<int> SaveItemAsync(Material item)
         {
-            await Init();
-            if (item.ID != 0)
+            if (item.Id != 0)
             {
-                return await Database.UpdateAsync(item);
+                return await db.UpdateAsync(item);
             }
             else
             {
-                return await Database.InsertAsync(item);
+                return await db.InsertAsync(item);
             }
         }
 
         public async Task<int> DeleteItemAsync(Material item)
         {
-            await Init();
-            return await Database.DeleteAsync(item);
+            return await db.DeleteAsync(item);
         }
     }
 }

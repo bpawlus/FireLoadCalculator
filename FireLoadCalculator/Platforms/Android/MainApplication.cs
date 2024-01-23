@@ -11,6 +11,6 @@ namespace FireLoadCalculator
         {
         }
 
-        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
+        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiAppAsync();
     }
 }

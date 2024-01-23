@@ -9,20 +9,20 @@ namespace FireLoadCalculator
 {
     public static class MauiProgram
     {
-        public static MauiApp CreateMauiApp()
+        public static MauiApp CreateMauiAppAsync()
         {
             var builder = MauiApp.CreateBuilder()
 #if DEBUG
-                                .UseMauiCommunityToolkit()
+            .UseMauiCommunityToolkit()
 #else
-								.UseMauiCommunityToolkit(options =>
-								{
-									options.SetShouldSuppressExceptionsInConverters(true);
-									options.SetShouldSuppressExceptionsInBehaviors(true);
-									options.SetShouldSuppressExceptionsInAnimations(true);
-								})
+            .UseMauiCommunityToolkit(options =>
+            {
+                options.SetShouldSuppressExceptionsInConverters(true);
+                options.SetShouldSuppressExceptionsInBehaviors(true);
+                options.SetShouldSuppressExceptionsInAnimations(true);
+            })
 #endif
-                .UseMauiApp<App>();
+            .UseMauiApp<App>();
 
             builder.ConfigureFonts(fonts =>
             {
@@ -32,6 +32,7 @@ namespace FireLoadCalculator
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
+            builder.Services.AddSingleton<FireLoadCalculatorDatabase>();
             builder.Services.AddSingleton<MaterialDatabase>();
 
             builder.Services.AddSingleton<AllMaterialsPage>();
@@ -39,6 +40,7 @@ namespace FireLoadCalculator
             builder.Services.AddSingleton<AllMaterials>();
             builder.Services.AddSingleton<AllRooms>();
             builder.Services.AddTransientPopup<AllRoomsPopup, AllRoomsPopupViewModel>();
+
             return builder.Build();
         }
     }
