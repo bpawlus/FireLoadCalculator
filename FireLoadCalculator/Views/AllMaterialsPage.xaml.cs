@@ -8,7 +8,6 @@ namespace FireLoadCalculator.Views;
 public partial class AllMaterialsPage : ContentPage
 {
     private Grid? content;
-    MaterialDatabase db;
     AllMaterials vm;
 
     public AllMaterialsPage(AllMaterials _vm)

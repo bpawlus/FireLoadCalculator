@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:FireLoadCalculator.Resources.Strings"
              x:Class="FireLoadCalculator.Views.AllMaterialsPage"
              xmlns:viewmodel="clr-namespace:FireLoadCalculator.Models"
              x:DataType="viewmodel:AllMaterials"
@@ -30,10 +31,10 @@
 
         <ScrollView Grid.Column="1" Grid.Row="0" Grid.RowSpan="3">
             <StackLayout>
-                <Label Text="Edit" FontSize="24"/>
-                <Label Text="Name:" FontSize="16"/>
+                <Label Text="{x:Static strings:AppResources.CommonEdit}" FontSize="24" />
+                <Label Text="{x:Static strings:AppResources.AllMaterialsName}" FontSize="16"/>
                 <Entry Placeholder="Enter task" Text="..."/>
-                <Label Text="Combustion Heat:" FontSize="16"/>
+                <Label Text="{x:Static strings:AppResources.AllMaterialsCombustionHeat}" FontSize="16"/>
                 <Entry Placeholder="Enter task" Text="..."/>
                 <Button Text="Save"/>
             </StackLayout>

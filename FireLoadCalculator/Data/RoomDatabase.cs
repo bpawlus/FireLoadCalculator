@@ -3,25 +3,26 @@ using SQLite;
 
 namespace FireLoadCalculator.Data
 {
-    public class MaterialDatabase
+    public class RoomDatabase
     {
         private SQLiteAsyncConnection db;
 
-        public MaterialDatabase(FireLoadCalculatorDatabase _db) {
+        public RoomDatabase(FireLoadCalculatorDatabase _db)
+        {
             db = _db.Database;
         }
 
-        public async Task<List<Material>> GetItemsAsync()
+        public async Task<List<Room>> GetItemsAsync()
         {
-            return await db.Table<Material>().ToListAsync();
+            return await db.Table<Room>().ToListAsync();
         }
 
-        public async Task<Material> GetItemAsync(int id)
+        public async Task<Room> GetItemAsync(int id)
         {
-            return await db.Table<Material>().Where(i => i.Id == id).FirstOrDefaultAsync();
+            return await db.Table<Room>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
 
-        public async Task<int> SaveItemAsync(Material item)
+        public async Task<int> SaveItemAsync(Room item)
         {
             if (item.Id != 0)
             {
@@ -33,7 +34,7 @@ namespace FireLoadCalculator.Data
             }
         }
 
-        public async Task<int> DeleteItemAsync(Material item)
+        public async Task<int> DeleteItemAsync(Room item)
         {
             return await db.DeleteAsync(item);
         }

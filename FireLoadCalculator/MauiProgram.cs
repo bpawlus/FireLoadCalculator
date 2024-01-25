@@ -32,8 +32,10 @@ namespace FireLoadCalculator
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
+
             builder.Services.AddSingleton<FireLoadCalculatorDatabase>();
             builder.Services.AddSingleton<MaterialDatabase>();
+            builder.Services.AddSingleton<RoomDatabase>();
 
             builder.Services.AddSingleton<AllMaterialsPage>();
             builder.Services.AddSingleton<AllRoomsPage>();
