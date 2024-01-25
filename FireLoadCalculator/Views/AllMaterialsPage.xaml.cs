@@ -1,16 +1,13 @@
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using FireLoadCalculator.Data;
-using FireLoadCalculator.Models;
+using FireLoadCalculator.ViewModels;
 
 namespace FireLoadCalculator.Views;
 
 public partial class AllMaterialsPage : ContentPage
 {
     private Grid? content;
-    AllMaterials vm;
+    AllMaterialsViewModel vm;
 
-    public AllMaterialsPage(AllMaterials _vm)
+    public AllMaterialsPage(AllMaterialsViewModel _vm)
 	{
         InitializeComponent();
         BindingContext = vm = _vm;

@@ -2,46 +2,36 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:strings="clr-namespace:FireLoadCalculator.Resources.Strings"
+             
              x:Class="FireLoadCalculator.Views.AllMaterialsPage"
-             xmlns:viewmodel="clr-namespace:FireLoadCalculator.Models"
-             x:DataType="viewmodel:AllMaterials"
+             xmlns:model="clr-namespace:FireLoadCalculator.Models"
+             xmlns:viewmodel="clr-namespace:FireLoadCalculator.ViewModels"
+             x:DataType="viewmodel:AllMaterialsViewModel"
              >
 
-    <Grid RowDefinitions="*, 50"
-          ColumnDefinitions=".33*, .67*"
-          Padding="8"
-          RowSpacing="4"
-          ColumnSpacing="4">
-
-        <CollectionView Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" ItemsSource="{Binding Materials}">
+    <Grid ColumnDefinitions="33*, 34*, 33*" RowDefinitions="32, *" Padding="32">
+        <Label Text="{x:Static strings:AppResources.AllMaterialsName}" HorizontalTextAlignment="Center" FontSize="24" Grid.Column="0"/>
+        <Label Text="{x:Static strings:AppResources.AllMaterialsCombustionHeat}" HorizontalTextAlignment="Center" FontSize="24" Grid.Column="1"/>
+        <Label Text="{x:Static strings:AppResources.AllMaterialsReductionFactor}" HorizontalTextAlignment="Center" FontSize="24" Grid.Column="2"/>
+        <BoxView Grid.Column="0" Grid.Row="1" Color="#040404" Margin="2" Grid.ColumnSpan="3"/>
+        <CollectionView Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Materials}" Grid.ColumnSpan="3">
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="viewmodel:Material">
-                    <Grid RowDefinitions="36, 12">
-                        <Grid.GestureRecognizers>
-                            <TapGestureRecognizer 
-                               Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:AllMaterials}}, Path=TapCommand}"
-                               CommandParameter="{Binding .}"/>
-                        </Grid.GestureRecognizers>
-                        <Label Text="{Binding Name}" FontSize="24" Grid.Row="0"/>
-                        <Label Text="{Binding CombustionHeat, StringFormat='Combustion Heat {0}'}" FontSize="8" Grid.Row="1"/> 
+                <DataTemplate x:DataType="model:Material">
+                    <Grid ColumnDefinitions="33*, 33*, 33*" RowDefinitions="48">
+                        <BoxView Grid.Column="0" Color="#080808" Margin="2"/>
+                        <Label Text="{Binding Name}" FontSize="24" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="4"/>
+                        <BoxView Grid.Column="1" Color="#0F0F0F" Margin="2"/>
+                        <Label Text="{Binding CombustionHeat}" FontSize="24" Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="4"/>
+                        <BoxView Grid.Column="2" Color="#080808" Margin="2" />
+                        <Label Text="{Binding ReductionFactor}" FontSize="24" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="4"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
+            <CollectionView.EmptyView>
+                <ContentView>
+                    <Label Text="{x:Static strings:AppResources.CommonMessageNoItems}" FontSize="32" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="4"/>
+                </ContentView>
+            </CollectionView.EmptyView>
         </CollectionView>
-
-        <ScrollView Grid.Column="1" Grid.Row="0" Grid.RowSpan="3">
-            <StackLayout>
-                <Label Text="{x:Static strings:AppResources.CommonEdit}" FontSize="24" />
-                <Label Text="{x:Static strings:AppResources.AllMaterialsName}" FontSize="16"/>
-                <Entry Placeholder="Enter task" Text="..."/>
-                <Label Text="{x:Static strings:AppResources.AllMaterialsCombustionHeat}" FontSize="16"/>
-                <Entry Placeholder="Enter task" Text="..."/>
-                <Button Text="Save"/>
-            </StackLayout>
-        </ScrollView>
-
-
-        <Button Text="New" Grid.Column="0" Grid.Row="1"/>
-
     </Grid>
 </ContentPage>

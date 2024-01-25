@@ -123,17 +123,32 @@
   <data name="AllMaterialsName" xml:space="preserve">
     <value>Nazwa</value>
   </data>
+  <data name="AllMaterialsPopupEnterArea" xml:space="preserve">
+    <value>Wpisz powierzchnię pomieszczenia...</value>
+  </data>
+  <data name="AllMaterialsPopupEnterName" xml:space="preserve">
+    <value>Wpisz nazwę pomieszczenia...</value>
+  </data>
   <data name="AllMaterialsReductionFactor" xml:space="preserve">
     <value>Współczynnik redukcji</value>
   </data>
   <data name="AllRoomsArea" xml:space="preserve">
     <value>Powierzchnia</value>
   </data>
+  <data name="AllRoomsControlsAdd" xml:space="preserve">
+    <value>Dodaj pomieszczenie</value>
+  </data>
   <data name="AllRoomsMaterials" xml:space="preserve">
     <value>Przechowywane materiały</value>
   </data>
+  <data name="AllRoomsMaterialsToAdd" xml:space="preserve">
+    <value>Dodaj przechowywany element</value>
+  </data>
   <data name="AllRoomsName" xml:space="preserve">
     <value>Nazwa</value>
+  </data>
+  <data name="AllRoomsTotalFireLoad" xml:space="preserve">
+    <value>Gęstość obciążenia ogniowego</value>
   </data>
   <data name="CommonAdd" xml:space="preserve">
     <value>Dodaj</value>
@@ -141,10 +156,22 @@
   <data name="CommonEdit" xml:space="preserve">
     <value>Edytuj</value>
   </data>
+  <data name="CommonMessageNoItems" xml:space="preserve">
+    <value>Brak elementów do wyświetlenia</value>
+  </data>
   <data name="CommonNew" xml:space="preserve">
     <value>Nowy</value>
   </data>
   <data name="CommonSave" xml:space="preserve">
     <value>Zapisz</value>
+  </data>
+  <data name="MenuItem1" xml:space="preserve">
+    <value>Gęstość obciążenia ogniowego</value>
+  </data>
+  <data name="MenuItem2" xml:space="preserve">
+    <value>Pojemność zbiornika wody do zewnętrznego gaszenia pożaru</value>
+  </data>
+  <data name="MenuItem3" xml:space="preserve">
+    <value>Materiały</value>
   </data>
 </root>

@@ -1,18 +1,25 @@
-using CommunityToolkit.Maui.Views;
-using FireLoadCalculator.Models;
+using FireLoadCalculator.ViewModels;
 
 namespace FireLoadCalculator.Views;
 
 public partial class AllRoomsPage : ContentPage
 {
-	public AllRoomsPage(AllRooms vm)
+    AllRoomsViewModel vm;
+    AllMaterialsViewModel vm_materials;
+
+    public AllRoomsPage(AllRoomsViewModel _vm, AllMaterialsViewModel _vm_materials)
 	{
 		InitializeComponent();
-        BindingContext = vm;
+        BindingContext = vm = _vm;
+        vm_materials = _vm_materials;
+
+
     }
 
-    private void Button_Clicked(object sender, EventArgs e)
+    protected override async void OnNavigatedTo(NavigatedToEventArgs args)
     {
-
+        base.OnNavigatedTo(args);
+        //await vm.UpdateRooms();
+        await vm_materials.UpdateMaterials();
     }
 }

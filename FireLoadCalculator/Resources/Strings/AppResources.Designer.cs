@@ -79,6 +79,24 @@ namespace FireLoadCalculator.Resources.Strings {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Enter room area....
+        /// </summary>
+        internal static string AllMaterialsPopupEnterArea {
+            get {
+                return ResourceManager.GetString("AllMaterialsPopupEnterArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Enter room name....
+        /// </summary>
+        internal static string AllMaterialsPopupEnterName {
+            get {
+                return ResourceManager.GetString("AllMaterialsPopupEnterName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Reduction factor.
         /// </summary>
         internal static string AllMaterialsReductionFactor {
@@ -97,6 +115,15 @@ namespace FireLoadCalculator.Resources.Strings {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Add room.
+        /// </summary>
+        internal static string AllRoomsControlsAdd {
+            get {
+                return ResourceManager.GetString("AllRoomsControlsAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Stored materials.
         /// </summary>
         internal static string AllRoomsMaterials {
@@ -106,11 +133,29 @@ namespace FireLoadCalculator.Resources.Strings {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Add stored material.
+        /// </summary>
+        internal static string AllRoomsMaterialsToAdd {
+            get {
+                return ResourceManager.GetString("AllRoomsMaterialsToAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Name.
         /// </summary>
         internal static string AllRoomsName {
             get {
                 return ResourceManager.GetString("AllRoomsName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Fire load density.
+        /// </summary>
+        internal static string AllRoomsTotalFireLoad {
+            get {
+                return ResourceManager.GetString("AllRoomsTotalFireLoad", resourceCulture);
             }
         }
         
@@ -133,6 +178,15 @@ namespace FireLoadCalculator.Resources.Strings {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu No items to display.
+        /// </summary>
+        internal static string CommonMessageNoItems {
+            get {
+                return ResourceManager.GetString("CommonMessageNoItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu New.
         /// </summary>
         internal static string CommonNew {
@@ -147,6 +201,33 @@ namespace FireLoadCalculator.Resources.Strings {
         internal static string CommonSave {
             get {
                 return ResourceManager.GetString("CommonSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Fire load density.
+        /// </summary>
+        internal static string MenuItem1 {
+            get {
+                return ResourceManager.GetString("MenuItem1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Water tank capacity for external fire extinguishing.
+        /// </summary>
+        internal static string MenuItem2 {
+            get {
+                return ResourceManager.GetString("MenuItem2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Materials.
+        /// </summary>
+        internal static string MenuItem3 {
+            get {
+                return ResourceManager.GetString("MenuItem3", resourceCulture);
             }
         }
     }

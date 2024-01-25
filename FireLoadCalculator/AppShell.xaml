@@ -3,15 +3,19 @@
     x:Class="FireLoadCalculator.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:strings="clr-namespace:FireLoadCalculator.Resources.Strings"
     xmlns:local="clr-namespace:FireLoadCalculator"
     xmlns:views="clr-namespace:FireLoadCalculator.Views"
     Shell.FlyoutBehavior="Locked">
 
-    <FlyoutItem Title="Materials" Route="materials">
-        <ShellContent ContentTemplate="{DataTemplate views:AllMaterialsPage}"/>
-    </FlyoutItem>
-    <FlyoutItem Title="Rooms" Route="rooms">
+    <FlyoutItem Title="{x:Static strings:AppResources.MenuItem1}" Route="rooms">
         <ShellContent ContentTemplate="{DataTemplate views:AllRoomsPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="{x:Static strings:AppResources.MenuItem2}" Route="materials" >
+        <ShellContent ContentTemplate="{DataTemplate views:AllRoomsPage}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="{x:Static strings:AppResources.MenuItem3}" Route="materials">
+        <ShellContent ContentTemplate="{DataTemplate views:AllMaterialsPage}"/>
     </FlyoutItem>
 
 </Shell>

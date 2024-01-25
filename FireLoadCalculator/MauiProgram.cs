@@ -39,8 +39,9 @@ namespace FireLoadCalculator
 
             builder.Services.AddSingleton<AllMaterialsPage>();
             builder.Services.AddSingleton<AllRoomsPage>();
-            builder.Services.AddSingleton<AllMaterials>();
-            builder.Services.AddSingleton<AllRooms>();
+            builder.Services.AddSingleton<AllMaterialsViewModel>();
+            builder.Services.AddSingleton<AllRoomsViewModel>();
+
             builder.Services.AddTransientPopup<AllRoomsPopup, AllRoomsPopupViewModel>();
 
             return builder.Build();
