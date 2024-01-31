@@ -5,6 +5,7 @@ using FireLoadCalculator.Data;
 using FireLoadCalculator.Models;
 using FireLoadCalculator.Views;
 using System.Collections.ObjectModel;
+using static SQLite.SQLite3;
 
 namespace FireLoadCalculator.ViewModels
 {
@@ -14,37 +15,10 @@ namespace FireLoadCalculator.ViewModels
         ObservableCollection<Room> rooms;
 
         RoomDatabase db;
-        AllMaterialsViewModel vm_materials;
-        private readonly IPopupService popupService;
 
-        public AllRoomsViewModel(AllMaterialsViewModel _vm_materials, IPopupService _popupService, RoomDatabase _db)
+        public AllRoomsViewModel(RoomDatabase _db)
         {
-            popupService = _popupService;
-            vm_materials = _vm_materials;
-            //Rooms = new ObservableCollection<Room>();
-            Rooms = new ObservableCollection<Room>()
-            {
-                new Room("Room 1", 200),
-                new Room("Room 2", 100),
-                new Room("Room 3", 80),
-                new Room("Room 4", 250),
-                new Room("Room 1", 200),
-                new Room("Room 2", 100),
-                new Room("Room 3", 80),
-                new Room("Room 4", 250),
-                new Room("Room 1", 200),
-                new Room("Room 2", 100),
-                new Room("Room 3", 80),
-                new Room("Room 4", 250),
-                new Room("Room 1", 200),
-                new Room("Room 2", 100),
-                new Room("Room 3", 80),
-                new Room("Room 4", 250),
-                new Room("Room 1", 200),
-                new Room("Room 2", 100),
-                new Room("Room 3", 80),
-                new Room("Room 4", 250),
-            };
+            Rooms = new ObservableCollection<Room>();
             db = _db;
         }
 
@@ -57,12 +31,6 @@ namespace FireLoadCalculator.ViewModels
                 foreach (var item in items)
                     Rooms.Add(item);
             });
-        }
-
-        [RelayCommand]
-        public Task DisplayPopup()
-        {
-            return this.popupService.ShowPopupAsync<AllRoomsPopupViewModel>(onPresenting: vm => vm.OverrideData(vm_materials.Materials));
         }
     }
 }

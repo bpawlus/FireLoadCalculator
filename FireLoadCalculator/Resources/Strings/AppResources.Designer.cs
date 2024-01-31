@@ -79,24 +79,6 @@ namespace FireLoadCalculator.Resources.Strings {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Enter room area....
-        /// </summary>
-        internal static string AllMaterialsPopupEnterArea {
-            get {
-                return ResourceManager.GetString("AllMaterialsPopupEnterArea", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Enter room name....
-        /// </summary>
-        internal static string AllMaterialsPopupEnterName {
-            get {
-                return ResourceManager.GetString("AllMaterialsPopupEnterName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Reduction factor.
         /// </summary>
         internal static string AllMaterialsReductionFactor {
@@ -133,20 +115,56 @@ namespace FireLoadCalculator.Resources.Strings {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Add stored material.
-        /// </summary>
-        internal static string AllRoomsMaterialsToAdd {
-            get {
-                return ResourceManager.GetString("AllRoomsMaterialsToAdd", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Name.
         /// </summary>
         internal static string AllRoomsName {
             get {
                 return ResourceManager.GetString("AllRoomsName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Enter room area....
+        /// </summary>
+        internal static string AllRoomsPopupEnterArea {
+            get {
+                return ResourceManager.GetString("AllRoomsPopupEnterArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Enter room name....
+        /// </summary>
+        internal static string AllRoomsPopupEnterName {
+            get {
+                return ResourceManager.GetString("AllRoomsPopupEnterName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Count.
+        /// </summary>
+        internal static string AllRoomsPopupMaterialsCounts {
+            get {
+                return ResourceManager.GetString("AllRoomsPopupMaterialsCounts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Material name.
+        /// </summary>
+        internal static string AllRoomsPopupMaterialsNames {
+            get {
+                return ResourceManager.GetString("AllRoomsPopupMaterialsNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Weight.
+        /// </summary>
+        internal static string AllRoomsPopupMaterialsWeights {
+            get {
+                return ResourceManager.GetString("AllRoomsPopupMaterialsWeights", resourceCulture);
             }
         }
         
@@ -165,6 +183,15 @@ namespace FireLoadCalculator.Resources.Strings {
         internal static string CommonAdd {
             get {
                 return ResourceManager.GetString("CommonAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Delete.
+        /// </summary>
+        internal static string CommonDelete {
+            get {
+                return ResourceManager.GetString("CommonDelete", resourceCulture);
             }
         }
         

@@ -1,9 +1,11 @@
-﻿using SQLite;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using SQLite;
 using SQLiteNetExtensions.Attributes;
+using System.ComponentModel;
 
 namespace FireLoadCalculator.Models
 {
-    public class Room
+    public partial class Room : ObservableObject
     {
         public Room() { }
         public Room(string _name, float _area) { 
@@ -13,8 +15,10 @@ namespace FireLoadCalculator.Models
 
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        public string Name { get; set; }
-        public float Area { get; set; }
+        [ObservableProperty]
+        public string name;
+        [ObservableProperty]
+        public float area;
 
         [OneToMany(CascadeOperations = CascadeOperation.CascadeDelete)]
         public List<RoomMaterials> RoomMaterials { get; set; }

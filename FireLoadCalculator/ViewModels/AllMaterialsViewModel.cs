@@ -5,6 +5,7 @@ using FireLoadCalculator.Data;
 using FireLoadCalculator.Models;
 using Microsoft.Maui.Controls.Compatibility;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace FireLoadCalculator.ViewModels
 {
@@ -14,10 +15,8 @@ namespace FireLoadCalculator.ViewModels
         ObservableCollection<Material> materials;
 
         MaterialDatabase db;
-
         public AllMaterialsViewModel(MaterialDatabase _db)
         {
-            //Materials = new ObservableCollection<Material>();
             Materials = new ObservableCollection<Material>()
             {
                 new Material("M1", 20, 0),

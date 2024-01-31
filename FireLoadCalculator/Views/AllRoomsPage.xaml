@@ -9,32 +9,35 @@
              x:DataType="viewmodel:AllRoomsViewModel"
              >
 
-    <Grid ColumnDefinitions="33*, 33*, 33*" RowDefinitions="64, *, 64" RowSpacing="4">
-        <Label Text="{x:Static strings:AppResources.AllRoomsName}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="24" Grid.Column="0" Margin="4"/>
-        <Label Text="{x:Static strings:AppResources.AllRoomsArea}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="24" Grid.Column="1" Margin="4"/>
-        <Label Text="{x:Static strings:AppResources.AllRoomsTotalFireLoad}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="24" Grid.Column="2" Margin="4"/>
-        
-        <BoxView Grid.Column="0" Grid.Row="1" Color="#040404" Margin="4" Grid.ColumnSpan="3" />
-        <CollectionView Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Rooms}" Grid.ColumnSpan="3" Margin="4">
+    <Grid ColumnDefinitions="40*, 20*, 20*, 20*" RowDefinitions="64, *, 64">
+        <Label Text="{x:Static strings:AppResources.AllRoomsName}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="24" Grid.Column="0" Margin="2"/>
+        <Label Text="{x:Static strings:AppResources.AllRoomsArea}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="24" Grid.Column="1" Margin="2"/>
+        <Label Text="{x:Static strings:AppResources.AllRoomsTotalFireLoad}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="24" Grid.Column="2" Margin="2"/>
+        <Label Text="{x:Static strings:AppResources.CommonDelete}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="24" Grid.Column="3" Margin="2"/>
+
+        <BoxView Grid.Column="0" Grid.Row="1" Color="#040404" Grid.ColumnSpan="4" Margin="2" />
+        <CollectionView Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Rooms}" Grid.ColumnSpan="4" Margin="4">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Room">
-                    <Grid ColumnDefinitions="33*, 33*, 33*" RowDefinitions="48" >
+                    <Grid ColumnDefinitions="40*, 20*, 20*, 20*" RowDefinitions="48" >
                         <BoxView Grid.Column="0" Color="#080808" Margin="2"/>
-                        <Label Text="{Binding Name}" FontSize="24" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="4"/>
+                        <Label Text="{Binding Name}" FontSize="24" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
                         <BoxView Grid.Column="1" Color="#0F0F0F" Margin="2"/>
-                        <Label Text="{Binding Area}" FontSize="24" Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="4"/>
+                        <Label Text="{Binding Area}" FontSize="24" Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
                         <BoxView Grid.Column="2" Color="#080808" Margin="2" />
-                        <Label Text="TODO" FontSize="24" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="4"/>
+                        <Label Text="TODO" FontSize="24" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                        <BoxView Grid.Column="3" Color="#0F0F0F" Margin="2" />
+                        <Button Text="X" Clicked="DisplayPopup" Grid.Column="3"/>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
             <CollectionView.EmptyView>
                 <ContentView>
-                    <Label Text="EMPTY" FontSize="24" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="4"/>
+                    <Label Text="EMPTY" FontSize="24" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="2"/>
                 </ContentView>
             </CollectionView.EmptyView>
         </CollectionView>
 
-        <Button Text="{x:Static strings:AppResources.AllRoomsControlsAdd}" Command="{Binding DisplayPopupCommand}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Margin="4"/>
+        <Button Text="{x:Static strings:AppResources.AllRoomsControlsAdd}" Clicked="DisplayPopup" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" Margin="2"/>
     </Grid>
 </ContentPage>

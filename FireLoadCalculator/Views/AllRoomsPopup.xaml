@@ -9,21 +9,41 @@
                xmlns:viewmodel="clr-namespace:FireLoadCalculator.ViewModels"
                x:DataType="viewmodel:AllRoomsPopupViewModel">
 
-    <Grid RowDefinitions="10*, 10*, 10*, 10*, 10*, 20*, 10*, 10*, 10*" Padding="4">
-        <Label Text="{x:Static strings:AppResources.AllRoomsName}" VerticalTextAlignment="Center" FontSize="16" Grid.Row="0" Margin="4"/>
-        <Entry Placeholder="{x:Static strings:AppResources.AllMaterialsPopupEnterName}" Grid.Row="1" FontSize="16" Margin="4"/>
-        <Label Text="{x:Static strings:AppResources.AllRoomsArea}" VerticalTextAlignment="Center" FontSize="16" Grid.Row="2" Margin="4"/>
-        <Entry Placeholder="{x:Static strings:AppResources.AllMaterialsPopupEnterArea}" Grid.Row="3" FontSize="16" Margin="4"/>
-        <Label Text="{x:Static strings:AppResources.AllRoomsMaterials}" VerticalTextAlignment="Center" FontSize="16" Grid.Row="4" Margin="4"/>
-        <CollectionView ItemsSource="{Binding Roommaterials}" SelectionMode="None" Grid.Row="5">
+    <Grid RowDefinitions="7*, 7*, 7*, 7*, 7*, 7*, 51*, 7*" Padding="4">
+        <Label Text="{x:Static strings:AppResources.AllRoomsName}" VerticalTextAlignment="Center" FontSize="16" Grid.Row="0" Margin="2"/>
+        <Entry Text="{Binding Roomname}" Placeholder="{x:Static strings:AppResources.AllRoomsPopupEnterName}" Grid.Row="1" FontSize="16" Margin="2"/>
+        <Label Text="{x:Static strings:AppResources.AllRoomsArea}" VerticalTextAlignment="Center" FontSize="16" Grid.Row="2" Margin="2"/>
+        <Entry Text="{Binding Roomarea}" Placeholder="{x:Static strings:AppResources.AllRoomsPopupEnterArea}" Grid.Row="3" FontSize="16" Margin="2"/>
+        <Label Text="{x:Static strings:AppResources.AllRoomsMaterials}" VerticalTextAlignment="Center" FontSize="16" Grid.Row="4" Margin="2"/>
+
+        <Grid ColumnDefinitions="40*, 20*, 20*, 20*" Grid.Row="5" Margin="2">
+            <Label Text="{x:Static strings:AppResources.AllRoomsPopupMaterialsNames}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="16" Grid.Column="0" Margin="4"/>
+            <Label Text="{x:Static strings:AppResources.AllRoomsPopupMaterialsWeights}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="16" Grid.Column="1" Margin="4"/>
+            <Label Text="{x:Static strings:AppResources.AllRoomsPopupMaterialsCounts}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="16" Grid.Column="2" Margin="4"/>
+            <Label Text="{x:Static strings:AppResources.CommonDelete}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="16" Grid.Column="3" Margin="4"/>
+        </Grid>
+
+        <BoxView Color="#040404" Grid.Row="6" Margin="2"/>
+        <CollectionView ItemsSource="{Binding Roommaterials}" SelectionMode="None" Grid.Row="6" Margin="4">
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="{x:Type model:RoomMaterialsDTO}">
+                <DataTemplate x:DataType="{x:Type model:RoomMaterials}">
+                    <Grid ColumnDefinitions="40*, 20*, 20*, 20*" >
+                        <BoxView Grid.Column="0" Color="#080808" Margin="4" />
+                        <Picker x:Name="picker" ItemsSource="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:AllRoomsPopupViewModel}}, Path=Materials}" ItemDisplayBinding="{Binding Name}" 
+                                Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="4"/>
+                        <BoxView Grid.Column="1" Color="#0F0F0F" Margin="4" />
+                        <Entry Text="{Binding MaterialCount}" FontSize="16" Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                        <BoxView Grid.Column="2" Color="#080808" Margin="4" />
+                        <Entry Text="{Binding MaterialWeight}" FontSize="16" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                        <BoxView Grid.Column="3" Color="#0F0F0F" Margin="4" />
+                        <Button Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:AllRoomsPopupViewModel}}, Path=DeleteCommand}" CommandParameter="{Binding MaterialId}" Text="X" FontSize="16" Grid.Column="3" Margin="2"/>
+                    </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Label Text="{x:Static strings:AppResources.AllRoomsMaterialsToAdd}" VerticalTextAlignment="Center" FontSize="16" Grid.Row="6" Margin="4"/>
-        <Picker x:Name="picker" ItemsSource="{Binding Materials}" ItemDisplayBinding="{Binding Name}" Grid.Row="7" Margin="4"/>
-        <Button Text="{x:Static strings:AppResources.AllRoomsControlsAdd}" FontSize="16" Grid.Row="8" Margin="4"/>
-    </Grid>
 
+        <!--<Button Text="{x:Static strings:AppResources.AllRoomsControlsAdd}" Clicked="Save" FontSize="16" Grid.Row="7" Margin="2"/>-->
+        <Button Text="debug" Command="{Binding EditCommand}" FontSize="16" Grid.Row="7" Margin="2"/>
+        
+    </Grid>
 </toolkit:Popup>

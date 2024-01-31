@@ -5,9 +5,18 @@ namespace FireLoadCalculator.Views;
 
 public partial class AllRoomsPopup : Popup
 {
-	public AllRoomsPopup(AllRoomsPopupViewModel vm)
+    AllRoomsPopupViewModel vm;
+
+    public AllRoomsPopup(AllRoomsPopupViewModel _vm)
 	{
         InitializeComponent();
-        BindingContext = vm;
+        BindingContext = vm = _vm;
+    }
+
+    public async void Save(object sender, EventArgs e)
+    {
+        var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+        await vm.Save();
+        await CloseAsync(cts);
     }
 }

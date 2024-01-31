@@ -123,12 +123,6 @@
   <data name="AllMaterialsName" xml:space="preserve">
     <value>Nazwa</value>
   </data>
-  <data name="AllMaterialsPopupEnterArea" xml:space="preserve">
-    <value>Wpisz powierzchnię pomieszczenia...</value>
-  </data>
-  <data name="AllMaterialsPopupEnterName" xml:space="preserve">
-    <value>Wpisz nazwę pomieszczenia...</value>
-  </data>
   <data name="AllMaterialsReductionFactor" xml:space="preserve">
     <value>Współczynnik redukcji</value>
   </data>
@@ -139,19 +133,34 @@
     <value>Dodaj pomieszczenie</value>
   </data>
   <data name="AllRoomsMaterials" xml:space="preserve">
-    <value>Przechowywane materiały</value>
-  </data>
-  <data name="AllRoomsMaterialsToAdd" xml:space="preserve">
-    <value>Dodaj przechowywany element</value>
+    <value>Składowane produkty</value>
   </data>
   <data name="AllRoomsName" xml:space="preserve">
     <value>Nazwa</value>
+  </data>
+  <data name="AllRoomsPopupEnterArea" xml:space="preserve">
+    <value>Wpisz powierzchnię pomieszczenia...</value>
+  </data>
+  <data name="AllRoomsPopupEnterName" xml:space="preserve">
+    <value>Wpisz nazwę pomieszczenia...</value>
+  </data>
+  <data name="AllRoomsPopupMaterialsCounts" xml:space="preserve">
+    <value>Ilość</value>
+  </data>
+  <data name="AllRoomsPopupMaterialsNames" xml:space="preserve">
+    <value>Nazwa produktu</value>
+  </data>
+  <data name="AllRoomsPopupMaterialsWeights" xml:space="preserve">
+    <value>Waga</value>
   </data>
   <data name="AllRoomsTotalFireLoad" xml:space="preserve">
     <value>Gęstość obciążenia ogniowego</value>
   </data>
   <data name="CommonAdd" xml:space="preserve">
     <value>Dodaj</value>
+  </data>
+  <data name="CommonDelete" xml:space="preserve">
+    <value>Usuń</value>
   </data>
   <data name="CommonEdit" xml:space="preserve">
     <value>Edytuj</value>
