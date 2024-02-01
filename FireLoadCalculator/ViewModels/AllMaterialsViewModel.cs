@@ -14,8 +14,7 @@ namespace FireLoadCalculator.ViewModels
         [ObservableProperty]
         ObservableCollection<Material> materials;
 
-        MaterialDatabase db;
-        public AllMaterialsViewModel(MaterialDatabase _db)
+        public AllMaterialsViewModel()
         {
             Materials = new ObservableCollection<Material>()
             {
@@ -24,18 +23,14 @@ namespace FireLoadCalculator.ViewModels
                 new Material("M3", 20, 0),
                 new Material("M4", 25, 0),
             };
-            db = _db;
         }
 
         public async Task UpdateMaterials()
         {
-            var items = await db.GetItemsAsync();
-            MainThread.BeginInvokeOnMainThread(() =>
-            {
-                Materials.Clear();
-                foreach (var item in items)
-                    Materials.Add(item);
-            });
+            var items = await Constants.Material_DB.GetItemsAsync();
+            Materials.Clear();
+            foreach (var item in items)
+                Materials.Add(item);
         }
     }
 }

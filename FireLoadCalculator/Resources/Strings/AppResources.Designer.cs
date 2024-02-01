@@ -61,7 +61,7 @@ namespace FireLoadCalculator.Resources.Strings {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Combustion heat.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Combustion heat [MJ/kg].
         /// </summary>
         internal static string AllMaterialsCombustionHeat {
             get {
@@ -79,7 +79,7 @@ namespace FireLoadCalculator.Resources.Strings {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Reduction factor.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Reduction factor [%].
         /// </summary>
         internal static string AllMaterialsReductionFactor {
             get {
@@ -88,7 +88,7 @@ namespace FireLoadCalculator.Resources.Strings {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Area.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Area [m²].
         /// </summary>
         internal static string AllRoomsArea {
             get {
@@ -160,7 +160,7 @@ namespace FireLoadCalculator.Resources.Strings {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Weight.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Weight [kg].
         /// </summary>
         internal static string AllRoomsPopupMaterialsWeights {
             get {
@@ -169,7 +169,7 @@ namespace FireLoadCalculator.Resources.Strings {
         }
         
         /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Fire load density.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Fire load density [MJ/m²].
         /// </summary>
         internal static string AllRoomsTotalFireLoad {
             get {

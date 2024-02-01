@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Channels;
 
 namespace FireLoadCalculator.ViewModels
@@ -19,76 +20,92 @@ namespace FireLoadCalculator.ViewModels
         ObservableCollection<Material> materials;
 
         [ObservableProperty]
-        ObservableCollection<RoomMaterials> roommaterials;
+        ObservableCollection<RoomMaterialViewModel> roomMaterials;
 
         [ObservableProperty]
-        string roomname;
-        [ObservableProperty]
-        string roomarea;
+        RoomViewModel? selectedRoom;
 
-        RoomDatabase room_db;
-        RoomMaterialsDatabase roommaterials_db;
+        RoomMaterialViewModelDelegate callback;
 
-        public void ChangeRoommaterials()
+        public void ChangeRoommaterials(RoomMaterialViewModel item)
         {
-            Debug.WriteLine("I will add.");
+            if (item == RoomMaterials?.LastOrDefault())
+                RoomMaterials.Add(new RoomMaterialViewModel(callback));
         }
 
-        public AllRoomsPopupViewModel(RoomDatabase _room_db, RoomMaterialsDatabase _roommaterials_db)
+        public AllRoomsPopupViewModel()
         {
-            room_db = _room_db;
-            roommaterials = new ObservableCollection<RoomMaterials>()
+            callback = new RoomMaterialViewModelDelegate(ChangeRoommaterials);
+        }
+
+        public async Task InitializeData(int? id)
+        {
+            var materials_fromdb = await Constants.Material_DB.GetItemsAsync();
+            Materials = new ObservableCollection<Material>(materials_fromdb);
+
+            if (id != null)
             {
-                new RoomMaterials(0, 1, 5, 5, new RoomMaterialsDelegate(ChangeRoommaterials)),
-                new RoomMaterials(0, 2, 15, 5, new RoomMaterialsDelegate(ChangeRoommaterials)),
-                new RoomMaterials(0, 3, 5, 15, new RoomMaterialsDelegate(ChangeRoommaterials))
-            };
-        }
+                Room room = await Constants.Room_DB.GetItemAsync((int)id);
+                SelectedRoom = new RoomViewModel(room);
 
-        public void OverrideData(ObservableCollection<Material> materials)
-        {
-            Materials = materials;
-            return;
-        }
+                RoomMaterials = new ObservableCollection<RoomMaterialViewModel>();
+                var items = await Constants.RoomMaterial_DB.GetItemByRoomIdAsync((int)id);
+                foreach (var item in items)
+                {
+                    RoomMaterials.Add(new RoomMaterialViewModel(item, null, callback));
+                };
 
-        protected override void OnPropertyChanged(PropertyChangedEventArgs e)
-        {
-            base.OnPropertyChanged(e);
-            string changed = e.PropertyName ?? "";
-            Debug.WriteLine($"Changed {changed}");
+                int count = RoomMaterials?.Count ?? 1;
+                for (int i = 0; i < count; i++)
+                {
+                    RoomMaterials[i].SelectedMaterial = Materials.Where(m => m.Id == items[i].MaterialId).FirstOrDefault();
+                    Debug.WriteLine($"RoomMaterials[{i}].SelectedMaterial is {RoomMaterials[i].SelectedMaterial?.Name ?? "NULL"}. Materials count: {Materials.Count}");
+                }
+            }
+            else
+            {
+                SelectedRoom = new RoomViewModel();
+
+                RoomMaterials = new ObservableCollection<RoomMaterialViewModel>()
+                {
+                    new RoomMaterialViewModel(callback),
+                };
+            }
         }
 
         public async Task Save()
         {
-            int roomarea_tosave = 0;
-            string roomname_tosave = Roomname != null ? Roomname : "";
-            try
+            Room room = new Room(SelectedRoom);
+            await Constants.Room_DB.SaveItemAsync(room);
+
+            int count = RoomMaterials?.Count ?? 1;
+            for (int i = 0; i < count - 1; i++)
             {
-                roomarea_tosave = Int32.Parse(Roomarea);
-            }
-            catch (FormatException)
-            {
-            }
-            catch(ArgumentNullException)
-            {
-            }
-            await room_db.SaveItemAsync(new Room(roomname_tosave, roomarea_tosave));
+                RoomMaterials[i].RoomId ??= room.Id;
+
+                Debug.WriteLine($"Saving RoomMaterials[{i}]. Material Id: {RoomMaterials[i].SelectedMaterial?.Name ?? "NULL"}");
+
+                await Constants.RoomMaterial_DB.SaveItemAsync(new RoomMaterial(RoomMaterials[i]));
+            };
         }
 
         [RelayCommand]
-        public async Task Delete(int id)
+        public async Task DeleteRoomMaterial(RoomMaterialViewModel item)
         {
-            return;
-            //await room_db.DeleteItemAsync(null);
+            if (item != RoomMaterials?.LastOrDefault())
+            {
+                RoomMaterials?.Remove(item);
+                await Constants.RoomMaterial_DB.DeleteItemAsync(new RoomMaterial(item));
+            }
         }
 
         [RelayCommand]
-        public void Edit()
+        public void DebugEdit()
         {
-            foreach(var v in Roommaterials)
+            int count = RoomMaterials?.Count ?? 1;
+            for (int i = 0; i < count-1; i++)
             {
-                v.MaterialWeight = 0;
-                v.MaterialCount = 0;
+                RoomMaterials[i].SelectedMaterial = Materials[3];
             }
         }
     }

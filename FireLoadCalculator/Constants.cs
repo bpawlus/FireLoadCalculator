@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FireLoadCalculator.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -18,5 +19,11 @@ namespace FireLoadCalculator
             SQLite.SQLiteOpenFlags.SharedCache;
 
         public static string DatabasePath => Path.Combine(SaveDirectory, DatabaseFilename);
+
+        public static MaterialDatabase Material_DB;
+        public static RoomDatabase Room_DB;
+        public static RoomMaterialDatabase RoomMaterial_DB;
+
+        public const double MaxTotalFireLoadDisplay = 100000;
     }
 }

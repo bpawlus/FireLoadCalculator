@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AllMaterialsCombustionHeat" xml:space="preserve">
-    <value>Combustion heat</value>
+    <value>Combustion heat [MJ/kg]</value>
   </data>
   <data name="AllMaterialsName" xml:space="preserve">
     <value>Name</value>
   </data>
   <data name="AllMaterialsReductionFactor" xml:space="preserve">
-    <value>Reduction factor</value>
+    <value>Reduction factor [%]</value>
   </data>
   <data name="AllRoomsArea" xml:space="preserve">
-    <value>Area</value>
+    <value>Area [m²]</value>
   </data>
   <data name="AllRoomsControlsAdd" xml:space="preserve">
     <value>Add room</value>
@@ -151,10 +151,10 @@
     <value>Material name</value>
   </data>
   <data name="AllRoomsPopupMaterialsWeights" xml:space="preserve">
-    <value>Weight</value>
+    <value>Weight [kg]</value>
   </data>
   <data name="AllRoomsTotalFireLoad" xml:space="preserve">
-    <value>Fire load density</value>
+    <value>Fire load density [MJ/m²]</value>
   </data>
   <data name="CommonAdd" xml:space="preserve">
     <value>Add</value>

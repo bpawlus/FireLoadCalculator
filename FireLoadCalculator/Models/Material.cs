@@ -20,6 +20,6 @@ namespace FireLoadCalculator.Models
         public float ReductionFactor { get; set; }
 
         [OneToMany(CascadeOperations = CascadeOperation.CascadeDelete)]
-        public List<RoomMaterials> RoomMaterials { get; set; }
+        public List<RoomMaterial> RoomMaterials { get; set; }
     }
 }

@@ -1,26 +1,30 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using FireLoadCalculator.ViewModels;
 using SQLite;
 using SQLiteNetExtensions.Attributes;
 using System.ComponentModel;
 
 namespace FireLoadCalculator.Models
 {
-    public partial class Room : ObservableObject
+    public partial class Room
     {
         public Room() { }
-        public Room(string _name, float _area) { 
-            Name = _name;
-            Area = _area;
+
+        public Room(RoomViewModel vm)
+        {
+            Id = vm.Id ?? 0;
+            Name = vm.Name ?? "";
+            Area = vm.Area ?? 0.0;
         }
 
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        [ObservableProperty]
-        public string name;
-        [ObservableProperty]
-        public float area;
+        
+        public string Name { get; set; }
+
+        public double Area { get; set; }
 
         [OneToMany(CascadeOperations = CascadeOperation.CascadeDelete)]
-        public List<RoomMaterials> RoomMaterials { get; set; }
+        public List<RoomMaterial> RoomMaterials { get; set; }
     }
 }

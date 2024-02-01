@@ -25,7 +25,7 @@ namespace FireLoadCalculator.Data
             Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
             await Database.CreateTableAsync<Material>();
             await Database.CreateTableAsync<Room>();
-            await Database.CreateTableAsync<RoomMaterials>();
+            await Database.CreateTableAsync<RoomMaterial>();
             return Database;
         }
     }

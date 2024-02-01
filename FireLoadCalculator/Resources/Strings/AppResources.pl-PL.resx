@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AllMaterialsCombustionHeat" xml:space="preserve">
-    <value>Ciepło spalania</value>
+    <value>Ciepło spalania [MJ/kg]</value>
   </data>
   <data name="AllMaterialsName" xml:space="preserve">
     <value>Nazwa</value>
   </data>
   <data name="AllMaterialsReductionFactor" xml:space="preserve">
-    <value>Współczynnik redukcji</value>
+    <value>Współczynnik redukcji [%]</value>
   </data>
   <data name="AllRoomsArea" xml:space="preserve">
-    <value>Powierzchnia</value>
+    <value>Powierzchnia [m²]</value>
   </data>
   <data name="AllRoomsControlsAdd" xml:space="preserve">
     <value>Dodaj pomieszczenie</value>
@@ -151,13 +151,13 @@
     <value>Nazwa produktu</value>
   </data>
   <data name="AllRoomsPopupMaterialsWeights" xml:space="preserve">
-    <value>Waga</value>
+    <value>Waga [kg]</value>
   </data>
   <data name="AllRoomsTotalFireLoad" xml:space="preserve">
-    <value>Gęstość obciążenia ogniowego</value>
+    <value>Gęstość obciążenia ogniowego [MJ/m²]</value>
   </data>
   <data name="CommonAdd" xml:space="preserve">
-    <value>Dodaj</value>
+    <value>Dodaj </value>
   </data>
   <data name="CommonDelete" xml:space="preserve">
     <value>Usuń</value>
