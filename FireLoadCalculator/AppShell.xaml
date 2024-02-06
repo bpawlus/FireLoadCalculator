@@ -12,7 +12,7 @@
         <ShellContent ContentTemplate="{DataTemplate views:AllRoomsPage}" />
     </FlyoutItem>
     <FlyoutItem Title="{x:Static strings:AppResources.MenuItem2}" Route="materials" >
-        <ShellContent ContentTemplate="{DataTemplate views:AllRoomsPage}"/>
+        <ShellContent ContentTemplate="{DataTemplate views:WaterReservoirPage}"/>
     </FlyoutItem>
     <FlyoutItem Title="{x:Static strings:AppResources.MenuItem3}" Route="materials">
         <ShellContent ContentTemplate="{DataTemplate views:AllMaterialsPage}"/>

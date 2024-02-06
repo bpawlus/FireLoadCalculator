@@ -9,38 +9,57 @@
              x:DataType="viewmodel:AllRoomsViewModel"
              >
 
-    <Grid ColumnDefinitions="40*, 20*, 20*, 20*" RowDefinitions="64, 64, *, 64">
-        <Button Text="{x:Static strings:AppResources.AllRoomsControlsAdd}" Command="{Binding DisplayPopupCommand}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Margin="2"/>
+    <Grid RowDefinitions="96, *, 96, 96">
+        <Grid Grid.Row="0" ColumnDefinitions="40*, 20*, 20*, 20*">
+            <Label Text="{x:Static strings:AppResources.AllRoomsName}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="24" Grid.Column="0" Margin="2"/>
+            <Label Text="{x:Static strings:AppResources.AllRoomsArea}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="24" Grid.Column="1" Margin="2"/>
+            <Label Text="{x:Static strings:AppResources.AllRoomsTotalFireLoad}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="24" Grid.Column="2" Margin="2"/>
+            <Label Text="{x:Static strings:AppResources.CommonDelete}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="24" Grid.Column="3" Margin="2"/>
+        </Grid>
 
-        <Label Text="{x:Static strings:AppResources.AllRoomsName}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="24" Grid.Column="0" Grid.Row="1"  Margin="2"/>
-        <Label Text="{x:Static strings:AppResources.AllRoomsArea}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="24" Grid.Column="1" Grid.Row="1"  Margin="2"/>
-        <Label Text="{x:Static strings:AppResources.AllRoomsTotalFireLoad}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="24" Grid.Column="2" Grid.Row="1"  Margin="2"/>
-        <Label Text="{x:Static strings:AppResources.CommonDelete}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="24" Grid.Column="3" Grid.Row="1"  Margin="2"/>
+        <Grid Grid.Row="1" ColumnDefinitions="40*, 20*, 20*, 20* ">
+            <BoxView Grid.Column="0" Color="#040404" Grid.ColumnSpan="4" Margin="2" />
+            <CollectionView Grid.Column="0" ItemsSource="{Binding Rooms}" Grid.ColumnSpan="4" Margin="4">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="viewmodel:RoomViewModel">
+                        <Grid ColumnDefinitions="40*, 20*, 20*, 20*" RowDefinitions="48" >
+                            <BoxView Grid.Column="0" Color="#080808" Margin="2"/>
+                            <Label Text="{Binding Name}" FontSize="24" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                            <BoxView Grid.Column="1" Color="#0F0F0F" Margin="2"/>
+                            <Label Text="{Binding Area}" FontSize="24" Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                            <BoxView Grid.Column="2" Color="#080808" Margin="2" />
+                            <Label Text="{Binding TotalFireLoad}" FontSize="24" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                            <BoxView Grid.Column="3" Color="#0F0F0F" Margin="2" />
+                            <Button Text="X" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:AllRoomsViewModel}}, Path=DeleteCommand}" CommandParameter="{Binding .}" Grid.Column="4"/>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:AllRoomsViewModel}}, Path=DisplayPopupCommand}" CommandParameter="{Binding Id}" />
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <!--
+                <CollectionView.EmptyView>
+                    <ContentView>
+                        <Label Text="EMPTY" FontSize="24" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="2"/>
+                    </ContentView>
+                </CollectionView.EmptyView>
+                -->
+            </CollectionView>
+        </Grid>
 
-        <BoxView Grid.Column="0" Grid.Row="2" Color="#040404" Grid.ColumnSpan="4" Margin="2" />
-        <CollectionView Grid.Column="0" Grid.Row="2" ItemsSource="{Binding Rooms}" Grid.ColumnSpan="4" Margin="4">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="viewmodel:RoomViewModel">
-                    <Grid ColumnDefinitions="40*, 20*, 20*, 20*" RowDefinitions="48" >
-                        <BoxView Grid.Column="0" Color="#080808" Margin="2"/>
-                        <Label Text="{Binding Name}" FontSize="24" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                        <BoxView Grid.Column="1" Color="#0F0F0F" Margin="2"/>
-                        <Label Text="{Binding Area}" FontSize="24" Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                        <BoxView Grid.Column="2" Color="#080808" Margin="2" />
-                        <Label Text="{Binding TotalFireLoad}" FontSize="24" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                        <BoxView Grid.Column="3" Color="#0F0F0F" Margin="2" />
-                        <Button Text="X" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:AllRoomsViewModel}}, Path=DeleteCommand}" CommandParameter="{Binding .}" Grid.Column="4"/>
-                        <Grid.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:AllRoomsViewModel}}, Path=DisplayPopupCommand}" CommandParameter="{Binding Id}" />
-                        </Grid.GestureRecognizers>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-            <CollectionView.EmptyView>
-                <ContentView>
-                    <Label Text="EMPTY" FontSize="24" Grid.Column="0" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Margin="2"/>
-                </ContentView>
-            </CollectionView.EmptyView>
-        </CollectionView>
+        <Grid Grid.Row="2" ColumnDefinitions="40*, 20*, 20*, 20*">
+            <Label Text="{x:Static strings:AppResources.AllRoomsSummaryArea}" FontSize="24" Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <Label Text="{x:Static strings:AppResources.AllRoomsSummaryFireLoad}" FontSize="24" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="3" ColumnDefinitions="40*, 20*, 20*, 20*">
+            <BoxView Grid.Column="0" Color="#040404" Grid.ColumnSpan="4" Margin="2" />
+            <Button Text="{x:Static strings:AppResources.AllRoomsControlsAdd}" Grid.Column="0" Command="{Binding DisplayPopupCommand}" Grid.Row="0" Margin="2"/>
+            <BoxView Grid.Column="1" Color="#8F0F0F" Margin="4" /><Button Text="{x:Static strings:AppResources.AllRoomsControlsAdd}" Grid.Column="0" Command="{Binding DisplayPopupCommand}" Grid.Row="0" Margin="2"/>
+            <Label Text="{Binding TotalArea}" FontSize="24" Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <BoxView Grid.Column="2" Color="#480808" Margin="4" />
+            <Label Text="{Binding TotalFireLoadDensity}" FontSize="24" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        </Grid>
     </Grid>
+
 </ContentPage>

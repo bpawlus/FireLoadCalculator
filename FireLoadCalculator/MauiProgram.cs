@@ -32,6 +32,7 @@ namespace FireLoadCalculator
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
+            builder.Services.AddSingleton<ExcelReader>();
 
             builder.Services.AddSingleton<FireLoadCalculatorDatabase>();
             builder.Services.AddSingleton<MaterialDatabase>();
@@ -40,8 +41,10 @@ namespace FireLoadCalculator
 
             builder.Services.AddSingleton<AllMaterialsPage>();
             builder.Services.AddSingleton<AllRoomsPage>();
+            builder.Services.AddSingleton<WaterReservoirPage>();
             builder.Services.AddSingleton<AllMaterialsViewModel>();
             builder.Services.AddSingleton<AllRoomsViewModel>();
+            builder.Services.AddSingleton<WaterReservoirViewModel>();
 
             builder.Services.AddTransientPopup<AllRoomsPopup, AllRoomsPopupViewModel>();
 

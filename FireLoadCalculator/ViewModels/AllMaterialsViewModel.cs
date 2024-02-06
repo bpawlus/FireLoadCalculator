@@ -16,21 +16,20 @@ namespace FireLoadCalculator.ViewModels
 
         public AllMaterialsViewModel()
         {
-            Materials = new ObservableCollection<Material>()
-            {
-                new Material("M1", 20, 0),
-                new Material("M2", 15, 0),
-                new Material("M3", 20, 0),
-                new Material("M4", 25, 0),
-            };
+            materials = new ObservableCollection<Material>();
         }
 
         public async Task UpdateMaterials()
         {
             var items = await Constants.Material_DB.GetItemsAsync();
             Materials.Clear();
+            Constants.Material_DB_List.Clear();
+
             foreach (var item in items)
+            {
                 Materials.Add(item);
+                Constants.Material_DB_List.Add(item);
+            }
         }
     }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:FireLoadCalculator.Resources.Strings"
+
+             x:Class="FireLoadCalculator.Views.WaterReservoirPage"
+             xmlns:view="clr-namespace:FireLoadCalculator.Views"
+             xmlns:model="clr-namespace:FireLoadCalculator.Models"
+             xmlns:viewmodel="clr-namespace:FireLoadCalculator.ViewModels"
+             x:DataType="viewmodel:WaterReservoirViewModel">
+    <Grid RowDefinitions="48, 48, 48, 48, 48, 48, 48, 48, 48" ColumnDefinitions="50*, 50*" Padding="4">
+        <Label Text="{x:Static strings:AppResources.WaterReservoirField1}" VerticalTextAlignment="Center" FontSize="16" Grid.Row="0" Grid.Column="0" Margin="2"/>
+        <Label Text="{x:Static strings:AppResources.WaterReservoirField2}" VerticalTextAlignment="Center" FontSize="16" Grid.Row="1" Grid.Column="0" Margin="2"/>
+        <Label Text="{x:Static strings:AppResources.WaterReservoirField3}" VerticalTextAlignment="Center" FontSize="16" Grid.Row="2" Grid.Column="0" Margin="2"/>
+        <Label Text="{x:Static strings:AppResources.WaterReservoirUseInternal}" VerticalTextAlignment="Center" FontSize="16" Grid.Row="3" Grid.Column="0" Margin="2"/>
+
+        <Label Text="{x:Static strings:AppResources.WaterReservoirField4}" VerticalTextAlignment="Center" FontSize="16" Grid.Row="5" Grid.Column="0" Margin="2"/>
+        <Label Text="{x:Static strings:AppResources.WaterReservoirField5}" VerticalTextAlignment="Center" FontSize="16" Grid.Row="6" Grid.Column="0" Margin="2"/>
+        <Label Text="{x:Static strings:AppResources.WaterReservoirField6}" VerticalTextAlignment="Center" FontSize="16" Grid.Row="7" Grid.Column="0" Margin="2"/>
+        <Label Text="{x:Static strings:AppResources.WaterReservoirField7}" VerticalTextAlignment="Center" FontSize="16" Grid.Row="8" Grid.Column="0" Margin="2"/>
+
+        <Entry Text="{Binding TotalFireLoadDensity}" x:Name="EntryField1" Placeholder="..." Grid.Row="0" Grid.Column="1" FontSize="16" Margin="2"/>
+        <Entry Text="{Binding ExternalWater}" x:Name="EntryField2" Placeholder="..." Grid.Row="1" Grid.Column="1" FontSize="16" Margin="2"/>
+        <Entry Text="{Binding TotalArea}" x:Name="EntryField3" Placeholder="..." Grid.Row="2" Grid.Column="1" FontSize="16" Margin="2"/>
+        
+        <Entry Text="{Binding WaterRequired}" x:Name="EntryField4" Grid.Row="5" Grid.Column="1" FontSize="16" Margin="2" IsEnabled="False"/>
+        <Entry Text="{Binding MissingWater}" x:Name="EntryField5" Grid.Row="6" Grid.Column="1" FontSize="16" Margin="2" IsEnabled="False"/>
+        <Entry Text="{Binding FireTime}" x:Name="EntryField6" Grid.Row="7" Grid.Column="1" FontSize="16" Margin="2" IsEnabled="False"/>
+        <Entry Text="{Binding FireWaterTankCapacity}" x:Name="EntryField7" Grid.Row="8" Grid.Column="1" FontSize="16" Margin="2" IsEnabled="False"/>
+
+        <CheckBox x:Name="UseInternalCheck" Grid.Row="3" Grid.Column="1" CheckedChanged="UseInternal"/>
+    </Grid>
+</ContentPage>

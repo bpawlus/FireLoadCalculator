@@ -106,6 +106,15 @@ namespace FireLoadCalculator.Resources.Strings {
         }
         
         /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Confirm changes.
+        /// </summary>
+        internal static string AllRoomsControlsModify {
+            get {
+                return ResourceManager.GetString("AllRoomsControlsModify", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu Stored materials.
         /// </summary>
         internal static string AllRoomsMaterials {
@@ -165,6 +174,24 @@ namespace FireLoadCalculator.Resources.Strings {
         internal static string AllRoomsPopupMaterialsWeights {
             get {
                 return ResourceManager.GetString("AllRoomsPopupMaterialsWeights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Total zone area [m²].
+        /// </summary>
+        internal static string AllRoomsSummaryArea {
+            get {
+                return ResourceManager.GetString("AllRoomsSummaryArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Total zone fire load density [MJ/m²].
+        /// </summary>
+        internal static string AllRoomsSummaryFireLoad {
+            get {
+                return ResourceManager.GetString("AllRoomsSummaryFireLoad", resourceCulture);
             }
         }
         
@@ -255,6 +282,105 @@ namespace FireLoadCalculator.Resources.Strings {
         internal static string MenuItem3 {
             get {
                 return ResourceManager.GetString("MenuItem3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Enter the fire load density [MJ/m²].
+        /// </summary>
+        internal static string WaterReservoirField1 {
+            get {
+                return ResourceManager.GetString("WaterReservoirField1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Enter the amount of water available from the hydrant network [dm³/s].
+        /// </summary>
+        internal static string WaterReservoirField2 {
+            get {
+                return ResourceManager.GetString("WaterReservoirField2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Enter the area of the fire zone [m²].
+        /// </summary>
+        internal static string WaterReservoirField3 {
+            get {
+                return ResourceManager.GetString("WaterReservoirField3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Amount of water required for external fire extinguishing [dm³/s].
+        /// </summary>
+        internal static string WaterReservoirField4 {
+            get {
+                return ResourceManager.GetString("WaterReservoirField4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Wrongly parsed/Missing data!.
+        /// </summary>
+        internal static string WaterReservoirField4Error {
+            get {
+                return ResourceManager.GetString("WaterReservoirField4Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Missing amount of water for external fire extinguishing [dm³/s].
+        /// </summary>
+        internal static string WaterReservoirField5 {
+            get {
+                return ResourceManager.GetString("WaterReservoirField5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu No need to build a fire water tank.
+        /// </summary>
+        internal static string WaterReservoirField5NoNeed {
+            get {
+                return ResourceManager.GetString("WaterReservoirField5NoNeed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Relative duration of the fire [h].
+        /// </summary>
+        internal static string WaterReservoirField6 {
+            get {
+                return ResourceManager.GetString("WaterReservoirField6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Required capacity of the fire water tank [m³].
+        /// </summary>
+        internal static string WaterReservoirField7 {
+            get {
+                return ResourceManager.GetString("WaterReservoirField7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Fire duration too long!.
+        /// </summary>
+        internal static string WaterReservoirField7VeryHigh {
+            get {
+                return ResourceManager.GetString("WaterReservoirField7VeryHigh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Use internal data.
+        /// </summary>
+        internal static string WaterReservoirUseInternal {
+            get {
+                return ResourceManager.GetString("WaterReservoirUseInternal", resourceCulture);
             }
         }
     }

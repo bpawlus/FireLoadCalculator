@@ -21,6 +21,6 @@ public partial class AllRoomsPage : ContentPage
     {
         base.OnNavigatedTo(args);
         await vm.UpdateRooms();
-        await vm_materials.UpdateMaterials();
+        await vm_materials.UpdateMaterials(); // Dla POPUP
     }
 }

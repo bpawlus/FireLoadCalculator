@@ -132,6 +132,9 @@
   <data name="AllRoomsControlsAdd" xml:space="preserve">
     <value>Dodaj pomieszczenie</value>
   </data>
+  <data name="AllRoomsControlsModify" xml:space="preserve">
+    <value>Zatwierdź zmiany</value>
+  </data>
   <data name="AllRoomsMaterials" xml:space="preserve">
     <value>Składowane produkty</value>
   </data>
@@ -152,6 +155,12 @@
   </data>
   <data name="AllRoomsPopupMaterialsWeights" xml:space="preserve">
     <value>Waga [kg]</value>
+  </data>
+  <data name="AllRoomsSummaryArea" xml:space="preserve">
+    <value>Łączna powierzchnia strefy [m²]</value>
+  </data>
+  <data name="AllRoomsSummaryFireLoad" xml:space="preserve">
+    <value>Gęstość obciążenia ogniowego strefy [MJ/m²]</value>
   </data>
   <data name="AllRoomsTotalFireLoad" xml:space="preserve">
     <value>Gęstość obciążenia ogniowego [MJ/m²]</value>
@@ -182,5 +191,38 @@
   </data>
   <data name="MenuItem3" xml:space="preserve">
     <value>Materiały</value>
+  </data>
+  <data name="WaterReservoirField1" xml:space="preserve">
+    <value>Podaj gęstość obciążenia ogniowego [MJ/m²]</value>
+  </data>
+  <data name="WaterReservoirField2" xml:space="preserve">
+    <value>Podaj ilość wody dostępnej z sieci hydrantowej [dm³/s]</value>
+  </data>
+  <data name="WaterReservoirField3" xml:space="preserve">
+    <value>Podaj powierzchnię strefy pożarowej [m²]</value>
+  </data>
+  <data name="WaterReservoirField4" xml:space="preserve">
+    <value>Wymagana ilość wody do zewnętrznego gaszenia pożaru [dm³/s]</value>
+  </data>
+  <data name="WaterReservoirField4Error" xml:space="preserve">
+    <value>Źle wprowadzone/Brakujące dane</value>
+  </data>
+  <data name="WaterReservoirField5" xml:space="preserve">
+    <value>Brakująca ilość wody do zewnętrznego gaszenia pożaru [dm³/s]</value>
+  </data>
+  <data name="WaterReservoirField5NoNeed" xml:space="preserve">
+    <value>Brak konieczności wykonania zbiornika wody pożarowej</value>
+  </data>
+  <data name="WaterReservoirField6" xml:space="preserve">
+    <value>Względny czas trwania pożaru (h)</value>
+  </data>
+  <data name="WaterReservoirField7" xml:space="preserve">
+    <value>Wymagana pojemność zbiornika wody pożarowej [m³]</value>
+  </data>
+  <data name="WaterReservoirField7VeryHigh" xml:space="preserve">
+    <value>Za długi czas trwania pożaru!</value>
+  </data>
+  <data name="WaterReservoirUseInternal" xml:space="preserve">
+    <value>Wykorzystaj wprowadzone dane</value>
   </data>
 </root>

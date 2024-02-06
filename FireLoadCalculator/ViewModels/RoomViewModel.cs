@@ -20,15 +20,7 @@ namespace FireLoadCalculator.ViewModels
 
         public async Task CalculateTotalFireLoad()
         {
-            var roommaterials = await Constants.RoomMaterial_DB.GetItemByRoomIdAsync((int)Id);
-            double result = 0;
-            foreach (var roommaterial in roommaterials)
-            {
-                if(roommaterial == null) continue;
-                var material = await Constants.Material_DB.GetItemAsync(roommaterial.MaterialId);
-                if (material == null) continue;
-                result += material.CombustionHeat * roommaterial.MaterialWeight * roommaterial.MaterialCount;
-            }
+            var result = await Constants.RoomMaterial_DB.GetFireLoadByRoomId((int)Id);
 
             try
             {

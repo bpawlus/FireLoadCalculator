@@ -13,7 +13,6 @@ public partial class AllRoomsPopup : Popup
 	{
         InitializeComponent();
         BindingContext = vm = _vm;
-        Debug.WriteLine(vm.Materials);
     }
 
     public async void Save(object sender, EventArgs e)

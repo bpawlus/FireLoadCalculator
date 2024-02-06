@@ -132,6 +132,9 @@
   <data name="AllRoomsControlsAdd" xml:space="preserve">
     <value>Add room</value>
   </data>
+  <data name="AllRoomsControlsModify" xml:space="preserve">
+    <value>Confirm changes</value>
+  </data>
   <data name="AllRoomsMaterials" xml:space="preserve">
     <value>Stored materials</value>
   </data>
@@ -152,6 +155,12 @@
   </data>
   <data name="AllRoomsPopupMaterialsWeights" xml:space="preserve">
     <value>Weight [kg]</value>
+  </data>
+  <data name="AllRoomsSummaryArea" xml:space="preserve">
+    <value>Total zone area [m²]</value>
+  </data>
+  <data name="AllRoomsSummaryFireLoad" xml:space="preserve">
+    <value>Total zone fire load density [MJ/m²]</value>
   </data>
   <data name="AllRoomsTotalFireLoad" xml:space="preserve">
     <value>Fire load density [MJ/m²]</value>
@@ -182,5 +191,38 @@
   </data>
   <data name="MenuItem3" xml:space="preserve">
     <value>Materials</value>
+  </data>
+  <data name="WaterReservoirField1" xml:space="preserve">
+    <value>Enter the fire load density [MJ/m²]</value>
+  </data>
+  <data name="WaterReservoirField2" xml:space="preserve">
+    <value>Enter the amount of water available from the hydrant network [dm³/s]</value>
+  </data>
+  <data name="WaterReservoirField3" xml:space="preserve">
+    <value>Enter the area of the fire zone [m²]</value>
+  </data>
+  <data name="WaterReservoirField4" xml:space="preserve">
+    <value>Amount of water required for external fire extinguishing [dm³/s]</value>
+  </data>
+  <data name="WaterReservoirField4Error" xml:space="preserve">
+    <value>Wrongly parsed/Missing data!</value>
+  </data>
+  <data name="WaterReservoirField5" xml:space="preserve">
+    <value>Missing amount of water for external fire extinguishing [dm³/s]</value>
+  </data>
+  <data name="WaterReservoirField5NoNeed" xml:space="preserve">
+    <value>No need to build a fire water tank</value>
+  </data>
+  <data name="WaterReservoirField6" xml:space="preserve">
+    <value>Relative duration of the fire [h]</value>
+  </data>
+  <data name="WaterReservoirField7" xml:space="preserve">
+    <value>Required capacity of the fire water tank [m³]</value>
+  </data>
+  <data name="WaterReservoirField7VeryHigh" xml:space="preserve">
+    <value>Fire duration too long!</value>
+  </data>
+  <data name="WaterReservoirUseInternal" xml:space="preserve">
+    <value>Use internal data</value>
   </data>
 </root>

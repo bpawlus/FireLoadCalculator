@@ -17,15 +17,15 @@ namespace FireLoadCalculator.ViewModels
     public partial class AllRoomsPopupViewModel : ObservableObject
     {
         [ObservableProperty]
-        ObservableCollection<Material> materials;
-
-        [ObservableProperty]
         ObservableCollection<RoomMaterialViewModel> roomMaterials;
 
         [ObservableProperty]
         RoomViewModel? selectedRoom;
 
         RoomMaterialViewModelDelegate callback;
+
+        [ObservableProperty]
+        string submitName;
 
         public void ChangeRoommaterials(RoomMaterialViewModel item)
         {
@@ -40,30 +40,31 @@ namespace FireLoadCalculator.ViewModels
 
         public async Task InitializeData(int? id)
         {
-            var materials_fromdb = await Constants.Material_DB.GetItemsAsync();
-            Materials = new ObservableCollection<Material>(materials_fromdb);
-
             if (id != null)
             {
+                SubmitName = Resources.Strings.AppResources.AllRoomsControlsModify;
+
                 Room room = await Constants.Room_DB.GetItemAsync((int)id);
                 SelectedRoom = new RoomViewModel(room);
 
                 RoomMaterials = new ObservableCollection<RoomMaterialViewModel>();
-                var items = await Constants.RoomMaterial_DB.GetItemByRoomIdAsync((int)id);
+                var items = await Constants.RoomMaterial_DB.GetItemsByRoomIdAsync((int)id);
                 foreach (var item in items)
                 {
                     RoomMaterials.Add(new RoomMaterialViewModel(item, null, callback));
                 };
 
-                int count = RoomMaterials?.Count ?? 1;
+                int count = RoomMaterials?.Count ?? 0;
                 for (int i = 0; i < count; i++)
                 {
-                    RoomMaterials[i].SelectedMaterial = Materials.Where(m => m.Id == items[i].MaterialId).FirstOrDefault();
-                    Debug.WriteLine($"RoomMaterials[{i}].SelectedMaterial is {RoomMaterials[i].SelectedMaterial?.Name ?? "NULL"}. Materials count: {Materials.Count}");
+                    RoomMaterials[i].SelectedMaterial = Constants.Material_DB_List.Where(m => m.Id == items[i].MaterialId).FirstOrDefault();
+                    Debug.WriteLine($"RoomMaterials[{i}].SelectedMaterial is {RoomMaterials[i].SelectedMaterial?.Name ?? "NULL"}. Materials count: {Constants.Material_DB_List.Count}");
                 }
             }
             else
             {
+                SubmitName = Resources.Strings.AppResources.AllRoomsControlsAdd;
+
                 SelectedRoom = new RoomViewModel();
 
                 RoomMaterials = new ObservableCollection<RoomMaterialViewModel>()
@@ -99,7 +100,7 @@ namespace FireLoadCalculator.ViewModels
             }
         }
 
-        [RelayCommand]
+/*        [RelayCommand]
         public void DebugEdit()
         {
             int count = RoomMaterials?.Count ?? 1;
@@ -107,6 +108,6 @@ namespace FireLoadCalculator.ViewModels
             {
                 RoomMaterials[i].SelectedMaterial = Materials[3];
             }
-        }
+        }*/
     }
 }

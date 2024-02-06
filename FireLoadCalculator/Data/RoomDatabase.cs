@@ -1,5 +1,6 @@
 ﻿using FireLoadCalculator.Models;
 using SQLite;
+using System.Linq;
 
 namespace FireLoadCalculator.Data
 {
@@ -10,11 +11,19 @@ namespace FireLoadCalculator.Data
         public RoomDatabase(FireLoadCalculatorDatabase _db)
         {
             db = _db.Database;
+
         }
 
         public async Task<List<Room>> GetItemsAsync()
         {
             return await db.Table<Room>().ToListAsync();
+        }
+
+        public async Task<double> GetItemsTotalArea()
+        {
+            var table = await db.Table<Room>().ToListAsync();
+            var sum = table.Sum(x => x.Area);
+            return sum;
         }
 
         public async Task<Room> GetItemAsync(int id)

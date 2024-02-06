@@ -6,7 +6,7 @@ using FireLoadCalculator.Data;
 using FireLoadCalculator.Models;
 using FireLoadCalculator.Views;
 using System.Collections.ObjectModel;
-using static SQLite.SQLite3;
+using System.ComponentModel;
 
 namespace FireLoadCalculator.ViewModels
 {
@@ -17,7 +17,12 @@ namespace FireLoadCalculator.ViewModels
 
         IPopupService popupService;
 
-        public AllRoomsViewModel(AllMaterialsViewModel _vm_materials, IPopupService _popupService)
+        [ObservableProperty]
+        string totalFireLoadDensity;
+        [ObservableProperty]
+        double totalArea;
+
+        public AllRoomsViewModel(IPopupService _popupService)
         {
             Rooms = new ObservableCollection<RoomViewModel>();
             popupService = _popupService;
@@ -29,13 +34,20 @@ namespace FireLoadCalculator.ViewModels
             Rooms.Clear();
             foreach (var item in items)
                 Rooms.Add(new RoomViewModel(item));
+            await CalculateTotalFireLoad();
         }
 
         [RelayCommand]
         public async Task Delete(RoomViewModel item)
         {
             await Constants.Room_DB.DeleteItemAsync(new Room(item));
-            Rooms.Remove(item);
+            await UpdateRooms();
+        } 
+
+        public async Task CalculateTotalFireLoad()
+        {
+            TotalArea = await Constants.Room_DB.GetItemsTotalArea();
+            TotalFireLoadDensity = await Constants.RoomMaterial_DB.GetFireLoadDensityAllRooms();
         }
 
         [RelayCommand]
