@@ -1,11 +1,6 @@
 ﻿using FireLoadCalculator.Data;
 using FireLoadCalculator.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace FireLoadCalculator
 {
@@ -14,7 +9,7 @@ namespace FireLoadCalculator
         public const string DatabaseFilename = "data.db3";
         public const string ExcelFilename = "fireloaddata.xlsx";
 
-        public static string SaveDirectory = FileSystem.AppDataDirectory;
+        public static string SaveDirectory = "./resources";
 
         public const SQLite.SQLiteOpenFlags Flags =
             SQLite.SQLiteOpenFlags.ReadWrite |
