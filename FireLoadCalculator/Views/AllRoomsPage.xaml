@@ -60,6 +60,10 @@
             <BoxView Grid.Column="2" Color="#480808" Margin="4" />
             <Label Text="{Binding TotalFireLoadDensity}" FontSize="24" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
         </Grid>
+
+        <!--
+        <Label x:Name="Debug" Text="{Binding Debug}" FontSize="24" Grid.Row="4" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+        -->
     </Grid>
 
 </ContentPage>

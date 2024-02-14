@@ -11,7 +11,6 @@ namespace FireLoadCalculator.Data
         public RoomDatabase(FireLoadCalculatorDatabase _db)
         {
             db = _db.Database;
-
         }
 
         public async Task<List<Room>> GetItemsAsync()

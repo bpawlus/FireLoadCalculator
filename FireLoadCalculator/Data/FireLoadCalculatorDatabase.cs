@@ -17,16 +17,25 @@ namespace FireLoadCalculator.Data
             Init();
         }
 
-        async Task<SQLiteAsyncConnection> Init()
+        public async Task<SQLiteAsyncConnection> Init()
         {
-            if (Database is not null)
-                return Database;
+            try
+            {
+                if (Database is not null)
+                    return Database;
 
-            Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
-            await Database.CreateTableAsync<Material>();
-            await Database.CreateTableAsync<Room>();
-            await Database.CreateTableAsync<RoomMaterial>();
-            return Database;
+
+                Database = new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
+                await Database.CreateTableAsync<Material>();
+                await Database.CreateTableAsync<Room>();
+                await Database.CreateTableAsync<RoomMaterial>();
+                return Database;
+            }
+            catch (Exception e)
+            {
+
+            }
+            return null;
         }
     }
 }

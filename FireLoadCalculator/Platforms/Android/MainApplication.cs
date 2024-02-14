@@ -1,6 +1,5 @@
 ﻿using Android.App;
 using Android.Runtime;
-using System.Globalization;
 
 namespace FireLoadCalculator
 {
@@ -12,6 +11,6 @@ namespace FireLoadCalculator
         {
         }
 
-        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiAppAsync();
+        protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();
     }
 }

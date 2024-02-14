@@ -4,13 +4,21 @@ using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
 using FireLoadCalculator.ViewModels;
 using FireLoadCalculator.Data;
+using FireLoadCalculator.Resources.Strings;
+using System.Globalization;
 
 namespace FireLoadCalculator
 {
     public static class MauiProgram
     {
-        public static MauiApp CreateMauiAppAsync()
+        public static MauiApp CreateMauiApp()
         {
+            //var loc = Thread.CurrentThread.CurrentCulture;
+            var loc = new CultureInfo("pl-PL");
+            CultureInfo.DefaultThreadCurrentCulture = AppResources.Culture = loc;
+
+            Constants.MoveFilesToAppdata();
+
             var builder = MauiApp.CreateBuilder()
 #if DEBUG
             .UseMauiCommunityToolkit()
@@ -23,7 +31,6 @@ namespace FireLoadCalculator
             })
 #endif
             .UseMauiApp<App>();
-
             builder.ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

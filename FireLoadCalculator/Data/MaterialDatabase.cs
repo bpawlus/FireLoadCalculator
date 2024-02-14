@@ -12,7 +12,7 @@ namespace FireLoadCalculator.Data
         }
 
         public async Task<List<Material>> GetItemsAsync()
-        {
+        {   
             return await db.Table<Material>().ToListAsync();
         }
 

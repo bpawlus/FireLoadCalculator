@@ -5,13 +5,13 @@
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
   IgnorableNamespaces="uap rescap">
-  
-  <Identity 
-	  Name="FireLoadCalculator" 
-	  Publisher="CN=BPawlus" 
-	  Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="DFA35C7E-F6C9-4C9D-887F-143DB32051B7" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <Identity 
+  Name="FireLoadCalculator" 
+  Publisher="CN=BPawlus" 
+  Version="0.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="F12B0C58-FB09-4EDE-8E08-44D3A51AE395" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>$placeholder$</DisplayName>
@@ -25,17 +25,7 @@
   </Dependencies>
 
   <Resources>
-    <Resource Language="en-US"/>
-    <Resource Language="de-DE"/>
-    <Resource Language="es-ES"/>
-    <Resource Language="fr-FR"/>
-    <Resource Language="ja-JP"/>
-    <Resource Language="pt-BR"/>
-    <Resource Language="pt-PT"/>
-    <Resource Language="ru-RU"/>
-    <Resource Language="zh-CN"/>
-    <Resource Language="zh-TW"/>
-    <Resource Language="pl-PL"/>
+    <Resource Language="x-generate" />
   </Resources>
 
   <Applications>
@@ -51,7 +41,7 @@
       </uap:VisualElements>
     </Application>
   </Applications>
-  
+
   <Capabilities>
     <rescap:Capability Name="runFullTrust" />
   </Capabilities>

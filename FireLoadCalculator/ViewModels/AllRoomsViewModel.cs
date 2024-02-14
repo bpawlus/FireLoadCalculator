@@ -5,6 +5,7 @@ using CommunityToolkit.Mvvm.Input;
 using FireLoadCalculator.Data;
 using FireLoadCalculator.Models;
 using FireLoadCalculator.Views;
+using SQLite;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 
@@ -21,6 +22,9 @@ namespace FireLoadCalculator.ViewModels
         string totalFireLoadDensity;
         [ObservableProperty]
         double totalArea;
+
+        [ObservableProperty]
+        string debug;
 
         public AllRoomsViewModel(IPopupService _popupService)
         {

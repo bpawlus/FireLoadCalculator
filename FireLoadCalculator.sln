@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.8.34330.188
+VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireLoadCalculator", "FireLoadCalculator\FireLoadCalculator.csproj", "{ADA08212-A37B-4968-8D3A-5FAB2A512248}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FireLoadCalculator", "FireLoadCalculator\FireLoadCalculator.csproj", "{12D63B7E-4DD9-46E5-8E2A-C2B5DF7D5676}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,17 +11,17 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{ADA08212-A37B-4968-8D3A-5FAB2A512248}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ADA08212-A37B-4968-8D3A-5FAB2A512248}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ADA08212-A37B-4968-8D3A-5FAB2A512248}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{ADA08212-A37B-4968-8D3A-5FAB2A512248}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ADA08212-A37B-4968-8D3A-5FAB2A512248}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ADA08212-A37B-4968-8D3A-5FAB2A512248}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{12D63B7E-4DD9-46E5-8E2A-C2B5DF7D5676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12D63B7E-4DD9-46E5-8E2A-C2B5DF7D5676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12D63B7E-4DD9-46E5-8E2A-C2B5DF7D5676}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{12D63B7E-4DD9-46E5-8E2A-C2B5DF7D5676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12D63B7E-4DD9-46E5-8E2A-C2B5DF7D5676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12D63B7E-4DD9-46E5-8E2A-C2B5DF7D5676}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {21DCA068-7C5A-4AE2-B205-DA4B13DB8499}
+		SolutionGuid = {449F8AAA-ACD8-48F1-9229-390780D34EDD}
 	EndGlobalSection
 EndGlobal

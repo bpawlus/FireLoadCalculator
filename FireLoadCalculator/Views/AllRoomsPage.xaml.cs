@@ -1,7 +1,9 @@
 using CommunityToolkit.Maui;
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Mvvm.Input;
+using FireLoadCalculator.Models;
 using FireLoadCalculator.ViewModels;
+using SQLite;
 
 namespace FireLoadCalculator.Views;
 
